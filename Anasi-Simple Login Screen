@@ -1,0 +1,113 @@
+import SwiftUI
+
+
+
+struct SimpleLoginscreen: View {
+    
+    @State var username: String = ""
+    @State var password: String = ""
+    
+    var body: some View {
+        
+        ZStack{
+            LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.yellow]), startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+            
+            VStack{
+                
+                HStack{
+                    
+                    Text("AnasiArcade").font(.title2).foregroundStyle(.white)
+                    Text("Studios").font(.title2)
+                } .padding().bold()
+                
+                Spacer()
+                
+                Text("Welcome Back!")
+                    .foregroundStyle(.white)
+                    .font(.title
+                ).padding(50)
+                
+                TextField("Username", text: $username)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                    .padding()
+                    .foregroundStyle(.white)
+                    .overlay{
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color.black.opacity(1))
+                    }
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 15)
+                
+                SecureField("Password", text: $password)
+                    .autocorrectionDisabled()
+                    .textInputAutocapitalization(.never)
+                    .padding()
+                    .foregroundColor(Color.white)
+                    .overlay{
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color.black.opacity(3))
+                        
+                    }
+                    .padding(.horizontal, 30)
+                    .padding(.bottom, 15)
+                
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Text("Login to System")
+                }).buttonStyle(.borderless)
+                    .controlSize(.large)
+                    .shadow(radius: 10)
+                    .padding()
+                    .foregroundColor(.white)
+                
+                
+                Text("Forgot password?")
+                    .font(.subheadline)
+                    .padding(25)
+                    .foregroundStyle(.black)
+                    .fontWeight(.bold
+                    )
+                    .onTapGesture {
+                        
+                    }
+                
+                HStack(spacing: 55){
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Label("Sign In", systemImage: "playstation.logo")
+                    })
+                    .controlSize(.large)
+                    .padding()
+                    .overlay{
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 1.5)
+                    }
+                    
+                    Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                        Label("Sign In", systemImage: "xbox.logo")
+                            .foregroundColor(.green)
+                    })
+                    .controlSize(.large)
+                    .padding()
+                    .overlay{
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(Color.black, lineWidth: 1.5)
+                    }
+                } .padding()
+                
+                HStack{
+                    Text("You don't have an account?").font(.title3).bold()
+                    Button(action: {}, label: {
+                        Text("Sign Up").font(.title3).bold()
+                            .foregroundStyle(.gray)
+                    })
+                }
+            }
+        }
+    }
+    
+}
+
+#Preview {
+    SimpleLoginscreen()
+}
